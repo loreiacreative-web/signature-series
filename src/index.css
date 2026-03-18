@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+
+  --color-buttercream: #FFF4CA;
+  --color-silk: #FFEDA9;
+  --color-saffron: #E67E22; /* Warmer, more orange saffron */
+  --color-clementine: #F39C12; /* Rich orange */
+  --color-honey: #FFC300; /* Bright buttery yellow-orange */
+  --color-glow-gold: #D4AF37; /* Classic gold */
+  --color-deep-ink: #3D2B1F; /* Warm dark brown, less harsh */
+  --color-paper: #FFFCF0; /* Very light buttery cream */
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-deep-ink font-sans antialiased;
+    background: radial-gradient(circle at top right, #FFF4CA 0%, #FFFCF0 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-saffron;
+  }
+}
+
+.glass-card {
+  @apply bg-white/60 backdrop-blur-md border border-honey/30 rounded-2xl shadow-lg;
+}
+
+.gold-button {
+  @apply bg-saffron text-white px-8 py-4 rounded-full font-semibold transition-all hover:bg-clementine hover:scale-105 hover:shadow-lg active:scale-95 disabled:opacity-50;
+}
+
+.saffron-text {
+  @apply text-saffron;
+}
+
+.map-progress-container {
+  @apply relative h-2 w-full bg-honey/20 rounded-full overflow-hidden;
+}
+
+.map-progress-bar {
+  @apply absolute top-0 left-0 h-full bg-saffron transition-all duration-500 ease-out;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  .glass-card {
+    background: white !important;
+    border: 1px solid #E67E22 !apply;
+    box-shadow: none !important;
+  }
+}
